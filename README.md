@@ -1,6 +1,6 @@
 <h1> hypertools-paper  <img src="https://static1.squarespace.com/static/57e18d24d482e96cd836c9f1/57e40b26cd0f689a2ff2badf/58915926d1758ec68ef249f5/1485984213751/HeusEtAl17-17.png" data-image="https://static1.squarespace.com/static/57e18d24d482e96cd836c9f1/57e40b26cd0f689a2ff2badf/58915926d1758ec68ef249f5/1485984213751/HeusEtAl17-17.png" height="50" width="50"></h1>
 
-This repository contains final versions of, and all associated materials for, the published versions of the Hypertools paper (arXiv preprint, and JMLR publication) in two respective directories. <br />
+This repository contains the published versions of, and all associated materials for, the Hypertools paper (arXiv preprint, and Journal of Machine Learning and Research publication) in two respective directories. <br />
 
 Each directory contains: a PDF of the manuscript, a .tex version of the masnuscript, and the associated figures in a 'figs' subdirectory. Any existing "boneyard" subdirectories have content not directly used in the compilation of the final manuscript(s). <br />
 
