@@ -1,0 +1,141 @@
+Dimensionality reduction algorithms~\citep[e.g.][]{Pear01} have played a foundational role in facilitating the deep understanding of complex high-dimensional data.  One particularly useful application of dimensionality reduction techniques is in data visualization, whereby high-dimensional data may be displayed in 2D or 3D plots that can reveal geometric insights into the data.  These insights can help practitioners understand where machine learning algorithms, such as pattern classifiers or descriptive models, might leverage the geometric properties of a dataset to improve performance.  Another common challenge to discovering structure in high-dimensional data comes with comparing different datasets that describe related phenomena (e.g.\ data from multiple modalities describing the same system).  Algorithms such as Hyperalignment~\citep{HaxbEtal11} and the Shared Response Model~\citep{ChenEtal15} use the Procrustean transformation~\citep{Scho66} to align the geometries of two or more spaces so that data with different axes may be plotted in a common space.  We propose that each of these techniques (dimensionality reduction, alignment, and visualization) applied in sequence should be cast as a single conceptual operation for gaining geometric insights into high-dimensional data.  Our Python toolbox enables this operation using in a single, highly flexible, function call.
+
+
+
+%For example, visual movie data might have dimensions corresponding to the pixel intensities in each movie frame, whereas brain responses to the movie might have dimensions corresponding to the activity of different brain areas over the same time period.  In some sense, the movie and brain data 
+
+% Data visualizations can reveal trends and patterns that are not otherwise obvious from the raw data or summary statistics.  While visualizing low-dimensional data is relatively straightforward (for example, plotting the change in a variable over time as $(x,y)$ coordinates on a graph), it is not always obvious how to visualize high-dimensional datasets in a similarly intuitive way.  Here we present 
+
+%\hypertools~is a Python toolbox for visualizing and manipulating large, high-dimensional datasets.  Our primary approach is to use dimensionality reduction techniques~\citep{Pear01, TippBish99} to embed high-dimensional datasets in a lower-dimensional space, and plot the data using a simple (yet powerful) API with many options for data manipulation (e.g. hyperalignment~\citep{HaxbEtal11}, clustering, normalizing, etc.) and plot styling.  The toolbox supports visualizing the data as static `point clouds' or animated `trajectories', which is particularly useful for high-dimensional time-series data. Visualizing data with \hypertools~provides an intuitive way to explore the structure of high-dimensional data, allowing for better hypothesis generation and model selection.
+
+
+% \begin{quotation}
+% ``\textit{To deal with hyper-planes in a fourteen dimensional space, visualize a 3D space and say `fourteen' to yourself very loudly.  Everyone does it.}'' \\\begin{flushright}\vspace{-0.5cm}--Geoffrey Hinton~\citep{Hint12}\end{flushright}
+% \end{quotation}
+
+
+
+
+
+
+Modern datasets are increasingly high-dimensional, presenting a challenge to researchers seeking to use machine learning algorithms to understand the datasets they are working on.  For most modern datasets, it is not possible to visualize the observations directly.  The 
+
+The \hypertools~toolbox is designed to reveal geometric structure in high-dimensional datasets by allowing users to perform complex manipulations and visualize the result in a single step. Visualizations can inspire deep insights and intuitions about geometric structure and patterns in complex datasets by capitalizing on the human visual system's ability to quickly and efficiently extract meaning and structure from highly complex visual information~\citep{UddeEtal16}.  This is perhaps especially true of high-dimensional datasets, where different dimensions or features may interact in complex ways that may not be immediately obvious through conventional summary statistics. Insights gleaned from these visualizations can be leveraged to create (or select) better models of the data, which can in turn lead to better classifiers.
+
+A number of techniques, collectively referred to as \textit{dimensionality reduction algorithms} have been developed over the past half-century to map high-dimensional data onto lower-dimensional representations that may be more easily manipulated and visualized.  Some well-known examples include Principal Components Analysis (PCA)~\citep{Pear01}, Probabilistic Principal Components Analysis (PPCA)~\citep{TippBish99}, Independent Components Analysis (ICA)~\citep{JuttHera91, ComoEtal91}, Multidimensional Scaling (MDS)~\citep{Torg58}, and $t$-Distributed Stochastic Neighbor Embedding (t-SNE)~\citep{MaatHint08}.  While the details of these algorithms differ, they each provide a means of obtaining a low-dimensional representation of the original high-dimensional dataset that preserves many of the geometric properties (e.g.\ the overall covariance structure of the data, data grouping, etc.) to the extent possible within a low-dimensional space.  In the \hypertools~toolbox, we leverage these dimensionality reduction algorithms to aide in visualizing high-dimensional data.
+
+
+
+
+
+A second important challenge comes from 
+
+
+A second class of algorithms leveraged in our toolbox provides techniques for manipulating and aligning different high-dimensional datasets.  These algorithms draw inspiration from the Procrustean transformation~\citep{Scho66}, which computes the affine transformations (i.e.\ translation, reflection, rotation, and scaling) that bring one dataset into alignment with another (in terms of minimizing the mean squared Euclidean distances between the corresponding points).  The hyperalignment algorithm~\citep{HaxbEtal11} and the Shared Response Model (SRM)~\citep{ChenEtal15} extend this technique to find a common set of transformations that bring many (more than two) high-dimensional datasets into common alignment.  Our \hypertools~toolbox leverages these alignment algorithms to allow users to manipulate and compare high-dimensional data, even when the dimensions (features) of original observations are different (e.g.\ observations from different modalities).
+
+Taken together, the \hypertools~toolbox provides a set of powerful functions for visualizing and manipulating high-dimensional data using dimensionality reduction and data alignment algorithms.  The toolbox is carefully designed with ease of use as a primary goal, such that complex visualizations and analyses may often be carried out with a single line of code. For example, one could perform a complex analysis such as reducing a list of high-dimensional arrays using t-SNE, hyperaligning them, color them according to a k-means clustering algorithm and then plotting in a single line: 
+\begin{align}
+& \texttt{\small import hypertools as hyp} \\
+& \texttt{\small hyp.plot(list\_of\_arrays, model=`TSNE', align=True, n\_cluster=3)}  
+\end{align}
+
+
+
+
+% \begin{table}[tbp]
+% \small
+% \centering
+%     \begin{tabular}{ccc}
+%     \toprule
+%     \textbf{Dimensionality Reduction} \\ \hline
+%     PCA & Incremental PCA & Sparse PCA \\
+%     Kernel PCA & Probabilistic PCA & t-SNE \\
+%     MDS & ICA & Factor Analysis \\
+%     Truncated SVD & Dictionary Learning & Mini Batch Dictionary Learning \\
+%     Isomap & Spectral Embedding & Locally Linear Embedding \\
+%     \textbf{Alignment} \\ \hline
+%     Hyperalignment & Procrustes & Shared Response Model \\ 
+%     \textbf{Clustering} \\ \hline
+%     $k$-means \\
+% 	\bottomrule
+%     \end{tabular}
+% \vspace{0.1in}
+% \caption{\textbf{\hypertools~supported algorithms.}  The table lists the main algorithms that comprise the toolbox as of version 0.3.0.}
+% \label{tab:algs}
+% \end{table}
+
+
+
+
+% \hypertools~can also accommodate lists of \texttt{Numpy} arrays or \texttt{Pandas} dataframes (only single-level indexed dataframes are currently supported):
+% \begin{align}
+% \texttt{hyp.plot([array1, array2, array3])}
+% \end{align}
+
+% When passed a list of arrays, \hypertools~will plot each array in a distinct color.  Colors and styling can be customized in a several ways.  Like \texttt{Matplotlib}, \hypertools~can parse format strings passed as positional arguments:
+% \begin{align}
+% & \texttt{hyp.plot([array1, array2, array3], ['bo', 'r--', 'g:'])}
+% \end{align}
+
+% Rather than specifying the colors of each data array, colors may instead be specified for each individual sample by providing labels for each sample:
+% \begin{align}
+% \texttt{hyp.plot(data, group=group\_labels)},
+% \end{align}
+% where \texttt{group\_labels} is a list of length $S$ (number of samples).  (Lists of group label arrays are also supported, e.g.\ if the data are passed in as a list of arrays; the list of labels must be of the same length as the list of data arrays.)
+
+% \hypertools~parses this function call by sub-dividing each data matrix into new lists defined by each unique label in \texttt{group\_labels}.  For example, if each sample label is a string from the set \texttt{(`a', `b', `c')} then each of these unique labels will be assigned a unique color, and the datapoints assigned to each label will be assigned that label's color.
+
+% In addition to specifying string labels for each sample, \hypertools~also supports numerical labeling.  If \texttt{group\_labels} is a list of numbers, \hypertools~will bin the range covered by those numerical values (excluding \texttt{nan}s, \texttt{None}s, and \texttt{inf}s) into $n$ evenly spaced bins (default: $n = 100$) and map these values onto a color palette.  The color palette used for this mapping may also be customized using the \texttt{palette} keyword:
+% \begin{align}
+% \texttt{hyp.plot([array1, array2], palette='husl')}
+% \end{align}
+
+% In addition to specifying group-level labels (which are used to determine the colors of each sample), each sample may also be labeled with an additional text label that may be shown (as text) on the plot.  The \texttt{label} and \texttt{labels} keyword arguments allow the user to define a list of strings (or a list of lists of strings) to be displayed next to each sample datapoint with an arrow pointing to it.  Each list of labels must be of length $S$ (number of samples).  (The \texttt{None} value may be used to specify ``blank'' labels, which will not show up on the plot.) By default, all datapoint labels are shown if the \texttt{label} or \texttt{labels} keyword is specified.  However, \hypertools~also supports a ``data exploration'' mode whereby the datapoint labels will only be shown when the mouse pointer hovers over the corresponding datapoint:
+% \begin{align}
+% \texttt{hyp.plot(data, labels=['a', None, 'a', 'b'], explore=True)}
+% \end{align}
+% This plotting mode is especially useful when there are many datapoints, or when the data labels are long.  If \texttt{explore} is set to \texttt{True} and no labels are specified, the labels will be auto-generated as an index and the PCA coordinate (e.g.\ \texttt{'45: (3.0, 4.0, 5.0)'}). Note: at the time of this writing, the \texttt{labels} and \texttt{explore} arguments are only supported for 3D static plots.
+
+
+
+
+% Because dimensionality reduction results in information loss (relative to the original dataset), it is important to consider how accurately a low-dimensional projection of the data reflects the original high-dimensional dataset.  \hypertools~includes a function that plots the correlation between the covariance matrices of the reduced and full datasets, as function of the number of principal components in the reduced dataset. The \texttt{describe\_pca} function computes these correlations iteratively (i.e.\ starting with one principal component, then two, then three, etc.) until a local maximum is detected.  The resulting plot provides insights into the increase in explanatory power (in terms of the across-sample covariance) associated with each new principal component.
+
+
+
+% \section{Examples}
+
+% \subsection*{Example \stepcounter{example}\arabic{example}: Dimensionality reduction and clustering with various types of mushrooms}
+
+% We retrieved the `mushroom classification' dataset from the  \href{https://www.kaggle.com/uciml/mushroom-classification}{Kaggle} database. The dataset contains annotated descriptive features of 8,124 mushrooms spanning 23 mushroom species from the \textit{Audubon Society Field Guide to North American Mushrooms}~\citep{Linc81}. Each observation comprises a list of 22 descriptive text features (e.g.\ cap shape, cap surface, habitat, etc.) along with a tag identifying each mushroom exemplar as poisonous or non-poisonous.
+
+% Plotting the PCA-reduced mushrooms feature matrix with \hypertools~reveals a striking clustered structure that is not readily noticeable by visual inspection of the feature matrix.  Overall, the samples appear to cluster by whether or not they are poisonous, but they also appear to group into sub-clusters (Fig.~\ref{fig:mushproj}).  Thus, \hypertools~can help scientists to quickly and easily characterize the geometry of their data, allowing for better hypothesis generation and better model selection. 
+
+% \subsection*{Example \stepcounter{example}\arabic{example}: Exploring factors that influence educational outcomes.}
+% Next, we analyzed an education dataset comprised of features from 480 students around the world, such as performance ratings (high, medium, and low performance), demographic descriptors (e.g.\ gender, nationality, place of birth, etc.) as well as classroom behaviors (number of times the student raised their hand, days absent from class, number of times the student visited online resources, etc.).
+
+% In contrast to the mushroom dataset, where the samples formed clear clusters, the distribution of samples in this dataset appear to form a single contiguous mass.  Further, coloring each sample (student) by their performance rating reveals a striking correspondence between the student's attributes and performance ratings.
+
+% \subsection*{Example \stepcounter{example}\arabic{example}: Exploring linguistic data from presidential nominees' Twitter posts.}
+% Whereas the above examples illustrate how simple numerical and categorical features are processed by \hypertools~to reveal geometric patterns in the data, we can use a similar approach to extract and visualize more complex features.  For example, topic models~\citep{BleiEtal03} may be used to derive a vector representation of each document in a corpus according to its linguistic properties.  Specifically, topic models identify ``themes'' that are reflected in varying amounts by different documents in the corpus, where each theme (\textit{topic}) is defined formally as a distribution over words in the vocabulary.
+
+% As an example of this approach, we next turn to an analysis of Twitter data (``tweets'') from the Twitter accounts of Hillary Clinton (\href{https://twitter.com/HillaryClinton}{@HillaryClinton}) and Donald Trump (\href{https://twitter.com/realDonaldTrump}{@realDonaldTrump}) over the course of their 2016 political campaigns.  The dataset, sourced from \href{https://github.com/fivethirtyeight}{FiveThirtyEight}, contains 6,444 tweets sent from the candidates' primary Twitter accounts between April 17, 2016 and September 26, 2016. We fit a 20-topic topic model to the entire collection of tweets from both candidates, yielding a single topic vector for each tweet.  Separately for each candidate, we next computed daily average topic vectors over the six month interval covered by the dataset, and we used \hypertools~to visualize the resulting day-by-day Twitter topics.
+
+% Plotting the candidates' tweet content in two dimensions reveals that Clinton's and Trump's tweets were primarily about different topics, resulting in a V-like topic cloud (Fig.~\ref{fig:tweets}a).
+
+% \subsection*{Example \stepcounter{example}\arabic{example}: Cyclical increases in global temperatures over time.}
+% In addition to generating static point cloud plots, \hypertools~may be used to generate trajectory plots to illustrate dynamic patterns in the data.  To highlight this feature, we used a global temperatures dataset which we acquired from \href{http://berkeleyearth.lbl.gov/city-list/}{Berkeley Earth}.  The Berkeley Earth averaging method takes temperature observations from a large array of weather monitoring stations throughout the world and produces a time-varying estimate of the underlying global temperature field across all of the Earth's land areas. This temperature field may then be sampled to obtain location-specific temperature estimates.
+
+% Two general trends were revealed by plotting the temperature data in this way.  First, the month-by-month temperatures within a year are cyclical (e.g.\ reflecting the changing seasons), which appears in the trajectory as a ``figure 8'' (this trend is most visible in Fig.~\ref{fig:globalwarming}b). Second, there has been a systematic shift in global temperatures over the 138 year period we examined.  This appears as a systematic shift in the position of the trajectory over time (Fig.~\ref{fig:globalwarming}a), and can also be seen by directly plotting the temperatures over time (Fig.~\ref{fig:globalwarming}d).
+
+% \subsection*{Example \stepcounter{example}\arabic{example}: Visualizing the correspondence between neural trajectories and a movie stimulus}
+
+% In addition to providing plotting tools for visualizing complex data, \hypertools~also provides tools for aligning trajectories from different sources (see \textit{Align}).  For example, suppose we have brain recordings from different people who all watched the same movie.  The general shapes of different people's brain data trajectories (showing how everyone's brain responses changed over time while watching the movie), as well as the movie trajectory (showing how the movie itself changed over time), might all share similar properties (e.g.\ reflecting the covariance structure of the movie and how people responded to it).  However, different people's brains may have reflected those similar responses differently, and the dimensions of ``brain space'' and ``movie space'' are not directly comparable.  As described in \textit{Materials and Methods}, the \hypertools~toolbox provides an easy-to-use interface for aligning datasets.  In this section example we demonstrate some uses of the \texttt{align} function using a previously published fMRI dataset~\citep{HaxbEtal11}, available for download \href{https://github.com/HaxbyLab/raiders\_data}{here}. The dataset comprises voxel responses from ventral temporal cortex, from each of 11 people, as they watched the feature-length film \textit{Raiders of the Lost Ark}.  The data were processed and hyperaligned as described in the original manuscript~\citep{HaxbEtal11}.
+
+% Figure~\ref{fig:raiders}a displays the trajectory plots for the averaged hyperaligned brain responses from two groups of participants in the original experiment (six in group 1, the remaining five in group 2).  The trajectories appear similar in their overall shape (indicating that the two groups of participants had roughly similar brain responses to the movie), but the alignment is imperfect (indicating that understanding individual differences between people's responses might be an interesting future direction to explore).
+
+% We next demonstrate how \hypertools~may be used to visualize the correspondence between datasets with different coordinate systems-- specifically, time-varying brain responses to the movie and the time-varying pixel intensities of the movie frames.  To align these spaces, we first preprocessed the movie frames to convert the movie into the $S \times F$ matrix format required by \hypertools~(here $S$ is the number of movie frames and $F$ is the number of pixels per frame).  We downsampled the movie frames from $540 \times 960$ RGB pixels at 30 FPS to $108 \times 192$ grayscale pixels at 1~FPS.  We then re-shaped each downsampled frame into a 20,736-dimensional vector.
+
+% We next averaged the (hyperaligned) brain responses from the 11 experimental participants to obtain a single brain response matrix.  We used piecewise cubic interpolation~\citep{FritCarl80} to re-sample this averaged brain response matrix from the original data acquisition rate (one image acquired every 2.5~s) to the downsampled movie frame rate (one image per second).  We used the \texttt{reduce} function to project both the movie and brain data onto 6,641 dimensions (i.e.\ the number of voxels in the original brain data) and shifted the time labels of the brain matrix backwards by 5~s to account for the hemodynamic response.  We then used the \texttt{procrustes} function to align the brain and movie data. The resulting aligned brain data matrix may then be plotted in the same space as the movie data matrix (Fig.~\ref{fig:raiders}b).  This visualization can provide insights into the similarities and differences between the geometric structure of the original movie and the structure of the brain responses to the movie.
+
+% In addition to facilitating visual comparisons of the geometries of the movie and brain data, the aligned data may also be compared in the ``native'' data space.  For example, each coordinate of ``movie space'' corresponds to an image, which may be displayed and examined.  Aligning the brain data to this movie space (using the \texttt{procrustes} function) means that each brain pattern now corresponds to a coordinate in movie space, and therefore the corresponding image may also be displayed and examined (Fig.~\ref{fig:raiders}c).  This provides a means of viewing the original movie through the ``lens'' of the brain responses to that movie.  This general approach could also be carried out in a cross-validated way (i.e.\ using one portion of the data to compute the Procrustean transformation from brain space to movie space, and then applying that transformation to the held-out brain data).  We plan to explore this form of alignment-based decoding in future work.
