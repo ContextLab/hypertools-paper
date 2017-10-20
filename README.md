@@ -1,5 +1,4 @@
-<h1> hypertools-paper </h1>
-<img src="https://static1.squarespace.com/static/57e18d24d482e96cd836c9f1/57e40b26cd0f689a2ff2badf/58915926d1758ec68ef249f5/1485984213751/HeusEtAl17-17.png" data-image="https://static1.squarespace.com/static/57e18d24d482e96cd836c9f1/57e40b26cd0f689a2ff2badf/58915926d1758ec68ef249f5/1485984213751/HeusEtAl17-17.png" height="60" width="60">
+<h1> hypertools-paper  <img src="https://static1.squarespace.com/static/57e18d24d482e96cd836c9f1/57e40b26cd0f689a2ff2badf/58915926d1758ec68ef249f5/1485984213751/HeusEtAl17-17.png" data-image="https://static1.squarespace.com/static/57e18d24d482e96cd836c9f1/57e40b26cd0f689a2ff2badf/58915926d1758ec68ef249f5/1485984213751/HeusEtAl17-17.png" height="50" width="50"></h1>
 
 This repository contains final versions of, and all associated materials for, the published versions of the Hypertools paper (arXiv preprint, and JMLR publication) in two respective directories. <br />
 
