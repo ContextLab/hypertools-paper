@@ -2,7 +2,7 @@
 
 This repository contains final versions of, and all associated materials for, the published versions of the Hypertools paper (arXiv preprint, and JMLR publication) in two respective directories. <br />
 
-Each directory contains: a PDF of the final submitted manuscript, the .tex file, and the associated figures in a 'figs' subdirectory. Any existing "boneyard" subdirectories have content that is either outdated or not directly used in the compilation of the final manuscript(s). <br />
+Each directory contains: a PDF of the manuscript, a .tex version of the masnuscript, and the associated figures in a 'figs' subdirectory. Any existing "boneyard" subdirectories have content not directly used in the compilation of the final manuscript(s). <br />
 
 <h2> RESOURCES: </h2><br />
 
