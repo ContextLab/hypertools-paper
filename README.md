@@ -6,7 +6,7 @@ Each directory contains: a PDF of the final submitted manuscript, the .tex file,
 
 <h2> RESOURCES: </h2><br />
 
-<b> JMLR paper </b><br />
+<a h ref="https://arxiv.org/abs/1701.08290">JMLR paper </a><br />
 <a href="https://arxiv.org/abs/1701.08290">arXiv paper </a><br />
 
 <a href="https://github.com/ContextLab/hypertools"> Code </a>  <br />
