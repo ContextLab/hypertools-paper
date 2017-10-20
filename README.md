@@ -11,7 +11,6 @@ Each directory contains: a PDF of the final submitted manuscript, the .tex file,
 
 <a href="https://github.com/ContextLab/hypertools"> Code </a>  <br />
 <a href="http://hypertools.readthedocs.io/en/latest/">Documentation</a><br />
-<a href="https://github.com/ContextLab/hypertools-paper-notebooks"> Replicated Analyses </a> <br />
-* repository with code and data to replicate our figures! <br />
+<a href="https://github.com/ContextLab/hypertools-paper-notebooks"> Replicate our analyses! </a> <br />
 
 <a href="http://blog.kaggle.com/2017/04/10/exploring-the-structure-of-high-dimensional-data-with-hypertools-in-kaggle-kernels/">Press Coverage</a>
