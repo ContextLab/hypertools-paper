@@ -12,3 +12,4 @@ This repository contains publications related to HyperTools (compiled PDFs, figu
 - Toolbox documentation: [[LINK](http://hypertools.readthedocs.io/en/latest/)]
 - Sample analyses (from the papers), including code and links to the data: [[LINK](https://github.com/ContextLab/hypertools-paper-notebooks)]
 - Kaggle post with a HyperTools tutorial: [[LINK](http://blog.kaggle.com/2017/04/10/exploring-the-structure-of-high-dimensional-data-with-hypertools-in-kaggle-kernels/)]
+- The BibTeX file used for both papers may be found [here](https://github.com/ContextLab/cdl-bibliography)
