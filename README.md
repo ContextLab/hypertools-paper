@@ -1,15 +1,14 @@
-<h1> hypertools-paper  <img src="https://static1.squarespace.com/static/57e18d24d482e96cd836c9f1/57e40b26cd0f689a2ff2badf/58915926d1758ec68ef249f5/1485984213751/HeusEtAl17-17.png" data-image="https://static1.squarespace.com/static/57e18d24d482e96cd836c9f1/57e40b26cd0f689a2ff2badf/58915926d1758ec68ef249f5/1485984213751/HeusEtAl17-17.png" height="50" width="50"></h1>
+<h1> HyperTools publications </h1>
+<img src="https://static1.squarespace.com/static/57e18d24d482e96cd836c9f1/57e40b26cd0f689a2ff2badf/58915926d1758ec68ef249f5/1485984213751/HeusEtAl17-17.png" data-image="https://static1.squarespace.com/static/57e18d24d482e96cd836c9f1/57e40b26cd0f689a2ff2badf/58915926d1758ec68ef249f5/1485984213751/HeusEtAl17-17.png" height="100" width="100">
 
-This repository contains the published versions of, and all associated materials for, the Hypertools paper (arXiv preprint, and Journal of Machine Learning and Research publication) in two respective directories. <br />
+This repository contains publications related to HyperTools (compiled PDFs, figure files, and source files):
+- [arXiv paper](https://github.com/ContextLab/hypertools-paper/tree/master/arXiv): non peer-reviewed preprint containing a detailed description of the toolbox and sample analyses.  
+- [JMRL paper](https://github.com/ContextLab/hypertools-paper/tree/master/JMLR): peer-reviewed paper containing a brief description of the toolbox and sample analyses.  (Current status: accepted pending minor revisions at *Journal of Machine Learning Research*.)
 
-Each directory contains: a PDF of the manuscript, a .tex version of the masnuscript, and the associated figures in a 'figs' subdirectory. Any existing "boneyard" subdirectories have content not directly used in the compilation of the final manuscript(s). <br />
+<h2> Additional resources </h2>
 
-<h2> RESOURCES: </h2><br />
-
-<a h ref="https://arxiv.org/abs/1701.08290">JMLR paper </a><br />
-<a href="https://arxiv.org/abs/1701.08290">arXiv paper </a><br />
-
-<a href="https://github.com/ContextLab/hypertools"> Code </a>  <br />
-<a href="http://hypertools.readthedocs.io/en/latest/">Documentation</a><br />
-<a href="https://github.com/ContextLab/hypertools-paper-notebooks"> Replicate our analyses! </a> <br />
-<a href="http://blog.kaggle.com/2017/04/10/exploring-the-structure-of-high-dimensional-data-with-hypertools-in-kaggle-kernels/">Press Coverage</a>
+- Link to arXiv paper: [[PDF](https://arxiv.org/abs/1701.08290)]
+- GitHub archive for HyperTools code: [[LINK](https://github.com/ContextLab/hypertools)]
+- Toolbox documentation: [[LINK](http://hypertools.readthedocs.io/en/latest/)]
+- Sample analyses (from the papers), including code and links to the data: [[LINK](https://github.com/ContextLab/hypertools-paper-notebooks)]
+- Kaggle post with a HyperTools tutorial: [[LINK](http://blog.kaggle.com/2017/04/10/exploring-the-structure-of-high-dimensional-data-with-hypertools-in-kaggle-kernels/)]
