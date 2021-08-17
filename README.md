@@ -3,7 +3,7 @@
 
 This repository contains publications related to HyperTools (compiled PDFs, figure files, and source files):
 - [arXiv paper](https://github.com/ContextLab/hypertools-paper/tree/master/arXiv): non peer-reviewed preprint containing a detailed description of the toolbox and sample analyses.  
-- [JMRL paper](https://github.com/ContextLab/hypertools-paper/tree/master/JMLR): peer-reviewed paper containing a brief description of the toolbox and sample analyses.  (Current status: accepted pending minor revisions at *Journal of Machine Learning Research*.)
+- [JMRL paper](https://github.com/ContextLab/hypertools-paper/tree/master/JMLR): peer-reviewed paper containing a brief description of the toolbox and sample analyses.  (Current status: published in *Journal of Machine Learning Research*.)
 
 <h2> Additional resources </h2>
 
